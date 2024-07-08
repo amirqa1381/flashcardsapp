@@ -14,6 +14,9 @@ Card List
 <h2>
     All Cards
 </h2>
+<a href="{% url 'create-card' %}" role="button" style="color:black;">
+    ✨ Create New Card
+</a>
 {% for card in card_list %}
     {% ifchanged  %}
     <h3>🗃 {{ card.box | ordinal }} Box</h3>
