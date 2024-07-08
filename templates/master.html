@@ -3,11 +3,61 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css" />
     <title>{% block title %}{% endblock %}</title>
-    <style>{% block style %}{% endblock %}</style>
+    <style>
+      {% block style %}
+            /* Custom CSS */
+
+          :root {
+              --accent: #6e48ad;
+              --accent-bg: white;
+              --bg: #fff;
+              --text: #212121;
+              --text-light: #585858;
+              --border: #d8dae1;
+              --code: #d81b60;
+              --preformatted: #444;
+          }
+
+          article {
+              background-color: var(--marked);
+              border: 1px solid var(--border);
+              border-radius: 5px;
+              padding: 1em;
+              margin: 1em 0;
+          }
+
+          h2 {
+              text-align: center;
+          }
+
+          h2, h4 {
+              margin-top: 0;
+          }
+
+          hr {
+              background: var(--accent);
+              border-color: var(--accent);
+          }
+
+          button,
+          a[role="button"] {
+              color: white;
+              text-decoration: none;
+          }
+
+          input, select, textarea {
+              width: 100%;
+      }
+            {% endblock %}
+    </style>
   </head>
   <body>
+    <h1>Flashcards App</h1>
+    <br /><br />
+    <hr />
+    <hr />
     {% block content %}{% endblock %}
   </body>
 </html>
