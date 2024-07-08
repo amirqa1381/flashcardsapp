@@ -1,3 +1,4 @@
+from django.db.models.query import QuerySet
 from django.shortcuts import render
 from django.views.generic import ListView, CreateView, UpdateView
 from .models import Card
@@ -35,4 +36,18 @@ class UpdateCardView(CreateCardView,UpdateView):
         UpdateView (view): this is the class that we inherite from it
     """
     success_url = reverse_lazy("card-list")
+
+
+
+class BoxView(CardListView):
+    template_name = "cards/box.html"
+    
+    def get_queryset(self):
+        return Card.objects.filter(box=self.kwargs['box_num'])
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['box_num'] = self.kwargs['box_num']
+        return context
+    
     
